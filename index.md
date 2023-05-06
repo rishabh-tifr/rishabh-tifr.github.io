@@ -6,4 +6,3 @@
 
 - [First Post](posts/first-post.md)
 
-theme: minima
