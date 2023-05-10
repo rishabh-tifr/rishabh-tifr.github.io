@@ -1,8 +1,8 @@
-# My Blog
+# Attic
 
 - [Home](index.md)
 
-## Latest Posts
+## Scrolls
 
 - [DOES NOT COMMUTE !](posts/first-post.md)
 
