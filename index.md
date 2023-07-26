@@ -1,4 +1,4 @@
 ## Scrolls
 
-- [DOES NOT COMMUTE !](posts/first-post.md)
+- [futuristic inner product](posts/first-post.md)
 
