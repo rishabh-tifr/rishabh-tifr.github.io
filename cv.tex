@@ -1,0 +1,132 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.85in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+
+% Colors
+\definecolor{accent}{HTML}{333333}
+\definecolor{link}{HTML}{8B1A1A}
+
+% Hyperref setup
+\hypersetup{colorlinks=true, linkcolor=link, urlcolor=link, citecolor=link}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+
+% Remove page numbers (optional, comment out to keep them)
+% \pagenumbering{gobble}
+
+% Custom commands
+\newcommand{\entry}[4]{%
+  \noindent\textbf{#1}\hfill\textit{#2}\\
+  #3\hfill#4\par\vspace{0.4em}%
+}
+
+\newcommand{\paper}[4]{%
+  \noindent #1\\
+  \textit{#2}\\
+  #3 \hfill #4\par\vspace{0.5em}%
+}
+
+\begin{document}
+
+% Header
+\begin{center}
+  {\LARGE\bfseries Rishabh Sharma}\\\vspace{0.3em}
+  Simons Center Independent Postdoctoral Fellow, New York University\\\vspace{0.2em}
+  \href{mailto:rs10125@nyu.edu}{rs10125@nyu.edu} \quad
+  \href{https://rishabh-tifr.github.io}{rishabh-tifr.github.io} \quad
+  \href{https://scholar.google.com/citations?user=9rzKUvIAAAAJ}{Google Scholar} \quad
+  \href{https://orcid.org/0009-0003-5320-6141}{ORCID}
+\end{center}
+
+% ----------------------------------------------------------------
+\section{Research Interests}
+
+World models, AI for science, and building physically grounded AI systems.
+
+% ----------------------------------------------------------------
+\section{Positions}
+
+\entry{Simons Center Independent Postdoctoral Fellow}{Jul 2025 -- present}
+{\href{https://wp.nyu.edu/sccpc/people/}{Simons Center for Computational Physical Chemistry}, New York University}{}
+
+% ----------------------------------------------------------------
+\section{Education}
+
+\entry{Integrated Ph.D. in Physics}{2019 -- 2025}
+{Tata Institute of Fundamental Research (TIFR), Hyderabad, India}{Advisor: Prof.\ Smarajit Karmakar}
+
+\vspace{0.2em}
+
+\entry{B.E. in Mechanical Engineering}{2014 -- 2018}
+{Panjab University, Chandigarh, India}{}
+
+% ----------------------------------------------------------------
+\section{Awards \& Fellowships}
+
+\noindent\textbf{Ramakrishna Cowsik Medal}, TIFR \hfill 2025\\
+Best paper across the TIFR system by a researcher under 35.\par\vspace{0.4em}
+
+\noindent\textbf{Simons Center Independent Postdoctoral Fellowship}, NYU \hfill 2025--2026\par\vspace{0.4em}
+
+\noindent\textbf{Sarojini Damodaran International Student Travel Fellowship}, TIFR \hfill 2023\par\vspace{0.4em}
+
+% ----------------------------------------------------------------
+\section{Publications}
+
+\begin{enumerate}[leftmargin=1.5em, label={[\arabic*]}]
+
+\item \textbf{R.\ Sharma}, S.\ Karmakar.
+\textit{Activity-induced annealing leads to a ductile-to-brittle transition in amorphous solids.}
+Nature Physics (2025).
+\href{https://doi.org/10.1038/s41567-024-02724-5}{doi:10.1038/s41567-024-02724-5}
+\\Featured in \href{https://www.nature.com/articles/s41567-025-02900-1}{Nature Physics News \& Views}.
+
+\item M.\ Adhikari$^*$, \textbf{R.\ Sharma}$^*$, S.\ Karmakar.
+\textit{Encoding fast and fault-tolerant memories in bulk and nanoscale amorphous solids.}
+Physical Review Letters (2025).
+\href{https://doi.org/10.1103/PhysRevLett.134.018202}{doi:10.1103/PhysRevLett.134.018202}
+
+\item U.\ A.\ Dattani$^*$, \textbf{R.\ Sharma}$^*$, S.\ Karmakar, P.\ Chaudhuri.
+\textit{Cavitation instabilities in amorphous solids via secondary mechanical perturbations.}
+arXiv preprint (2023).
+\href{https://arxiv.org/abs/2303.04529}{arXiv:2303.04529}
+
+\end{enumerate}
+
+\vspace{-0.5em}
+\noindent{\small $^*$Equal contribution.}
+
+% ----------------------------------------------------------------
+\section{Research Visits}
+
+\noindent\textbf{Roskilde University}, Denmark \hfill Nov -- Dec 2023\\
+Hosted by Prof.\ Jeppe Dyre\par\vspace{0.4em}
+
+\noindent\textbf{Heinrich Heine University D\"usseldorf}, Germany \hfill Dec 2023 -- Jan 2024\\
+Hosted by Prof.\ J\"urgen Horbach\par\vspace{0.4em}
+
+% ----------------------------------------------------------------
+\section{Talks}
+
+\noindent ``Glass and Time'' Group, Roskilde University, Denmark \hfill Nov 2023\\
+\noindent Institut f\"ur Theoretische Physik, University of G\"ottingen, Germany \hfill Jan 2024\\
+\noindent Computational Soft Matter Seminar, University of Amsterdam, Netherlands \hfill Jan 2024\\
+\noindent Soft Matter Group, Heinrich Heine University D\"usseldorf, Germany \hfill Jan 2024\par
+
+% ----------------------------------------------------------------
+\section{Selected Media Coverage}
+
+\noindent\href{https://www.nature.com/articles/s41567-025-02900-1}{Nature Physics News \& Views}
+\quad\textbar\quad
+\href{https://www.eurekalert.org/news-releases/1084263}{EurekAlert}
+\quad\textbar\quad
+\href{https://phys.org/news/2025-05-uncover-mechanism-enabling-glasses-brittleness.html}{Phys.org}
+
+\end{document}
