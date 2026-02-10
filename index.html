@@ -35,7 +35,21 @@
     }
 
     /* Header */
-    header { margin-bottom: 3rem; }
+    header {
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+    }
 
     h1 {
       font-size: 1.8rem;
@@ -166,22 +180,27 @@
     @media (max-width: 480px) {
       main { padding: 2.5rem 1.2rem 4rem; }
       h1 { font-size: 1.5rem; }
+      .photo { width: 90px; height: 90px; }
     }
   </style>
 </head>
 <body>
   <main>
     <header>
+      <img src="photo.jpg" alt="Rishabh Sharma" class="photo">
+      <div>
       <h1>Rishabh Sharma</h1>
       <div class="affiliation">
         Simons Center Independent Postdoctoral Fellow<br>
-        <a href="https://wp.nyu.edu/sccpc/people/">Simons Center for Computational Physical Chemistry</a>, New York University
+        <a href="https://wp.nyu.edu/sccpc/people/">Simons Center for Computational Physical Chemistry</a><br>
+        New York University
       </div>
       <div class="links">
         <a href="mailto:rs10125@nyu.edu">email</a>
         <a href="https://scholar.google.com/citations?user=9rzKUvIAAAAJ&hl=en">scholar</a>
         <a href="https://orcid.org/0009-0003-5320-6141">orcid</a>
-        <a href="https://github.com/rishabh-tifr">github</a>
+        <a href="cv.pdf" target="_blank">cv</a>
+      </div>
       </div>
     </header>
 
