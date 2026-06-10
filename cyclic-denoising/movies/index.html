@@ -56,6 +56,29 @@
     }
     figcaption .label { font-weight: 700; }
     figcaption .sub { color: var(--muted); }
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    nav a {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    nav a:hover { border-color: var(--accent); color: var(--accent); }
+    nav a.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
     footer {
       border-top: 1px solid var(--border);
       margin-top: 24px;
@@ -73,6 +96,10 @@
       <h1>Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</h1>
       <p class="authors">Rishabh Sharma, Stefano Martiniani</p>
       <p class="affil">New York University</p>
+      <nav>
+        <a href="../">Overview</a>
+        <a href="./" class="active">Supplementary Movies</a>
+      </nav>
     </header>
 
     <p class="intro">
