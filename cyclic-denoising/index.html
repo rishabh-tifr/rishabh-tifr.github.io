@@ -101,9 +101,14 @@
     </header>
 
     <p class="intro">
-      We probe the generative landscape of diffusion models by cyclically noising and
-      denoising at a fixed amplitude, revealing ultrastable absorbing states that recur
-      across seeds and amplitudes and correspond to memorized training images.
+      We introduce cyclic denoising&mdash;repeated forward and reverse diffusion at
+      controlled noise amplitudes&mdash;as an extraction attack for image diffusion models.
+      Inspired by the physics of random organization in disordered solids, and unlike prior
+      generate-and-filter attacks, it works from the model's own dynamics alone&mdash;requiring
+      no known prompts and no access to the training set. Repeated cycling drives samples
+      into ultrastable attractors, many of which decode to verbatim training images such as
+      stock photographs, brand watermarks, and web-crawl artifacts, making cyclic denoising
+      a practical auditing tool for memorization, privacy, and copyright compliance.
     </p>
 
     <div class="coming">
