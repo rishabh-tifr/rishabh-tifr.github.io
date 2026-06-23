@@ -77,6 +77,21 @@
     }
     .coming p { color: var(--muted); margin: 0; }
     .intro { color: var(--muted); font-size: 0.98rem; margin: 28px 0 0; }
+    figure.anim { margin: 40px 0 8px; }
+    figure.anim video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+    }
+    figure.anim figcaption {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-top: 12px;
+    }
     footer {
       border-top: 1px solid var(--border);
       margin-top: 24px;
@@ -111,8 +126,26 @@
       a practical auditing tool for memorization, privacy, and copyright compliance.
     </p>
 
+    <figure class="anim">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="anim/shear_anneal_poster.jpg"
+             aria-label="Cyclic shear annealing: a 2D amorphous solid driven into an absorbing state while its energy descends a rugged landscape.">
+        <source src="anim/shear_anneal.webm" type="video/webm">
+        <source src="anim/shear_anneal.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        <strong>The physical picture.</strong> A disordered solid is sheared back and forth at a fixed
+        strain amplitude (left). Its particles rearrange for a few cycles, then it settles into an
+        <em>absorbing state</em>&mdash;returning to the very same configuration at the end of every cycle,
+        even as the driving continues. Stroboscopically, its energy ratchets down a rugged landscape and
+        locks into a minimum (right). Cyclic denoising applies exactly this idea to a diffusion model,
+        with noising and denoising in place of shearing, and finds the model&rsquo;s own absorbing
+        states&mdash;many of which turn out to be memorized training images.
+      </figcaption>
+    </figure>
+
     <div class="coming">
-      <p class="big">Blog post coming soon.</p>
+      <p class="big">Full blog post coming soon.</p>
       <p>In the meantime, the supplementary movies are available
         <a href="movies/">here</a>.</p>
     </div>
