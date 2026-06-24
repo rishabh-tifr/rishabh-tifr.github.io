@@ -1,0 +1,3 @@
+# Keep the work-in-progress blog draft out of search indexes.
+User-agent: *
+Disallow: /cyclic-denoising/draft/

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+  WORK-IN-PROGRESS BLOG DRAFT.
+  This page is intentionally unlinked, noindex'd, and blocked in /robots.txt.
+  Build the full blog post here. To launch: copy this file's contents into
+  /cyclic-denoising/index.html and remove the robots noindex tag.
+  Asset paths are root-absolute (/cyclic-denoising/...) so promotion needs no rewrites.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</title>
+  <meta name="description" content="Project page for 'Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models'.">
+  <style>
+    :root {
+      --fg: #1a1a1a;
+      --muted: #555;
+      --accent: #b3261e;
+      --bg: #ffffff;
+      --card: #fafafa;
+      --border: #e6e6e6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .draftbar {
+      background: #fff8e1;
+      border: 1px solid #f0d98a;
+      color: #7a5b00;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 36px; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 10px; }
+    .authors { color: var(--muted); font-size: 1rem; margin: 0 0 4px; }
+    .affil { color: var(--muted); font-size: 0.9rem; margin: 0; }
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    nav a {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    nav a:hover { border-color: var(--accent); color: var(--accent); }
+    nav a.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .intro { color: var(--muted); font-size: 0.98rem; margin: 28px 0 0; }
+    figure.anim { margin: 40px 0 8px; }
+    figure.anim video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+    }
+    figure.anim figcaption {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-top: 12px;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      padding-top: 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="draftbar">
+      Draft preview &mdash; not yet public. This page is <code>noindex</code> and unlinked.
+    </div>
+
+    <header>
+      <p class="kicker">Project Page</p>
+      <h1>Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</h1>
+      <p class="authors">Rishabh Sharma, Stefano Martiniani</p>
+      <p class="affil">New York University</p>
+      <nav>
+        <a href="/cyclic-denoising/draft/" class="active">Overview</a>
+        <a href="/cyclic-denoising/movies/">Supplementary Movies</a>
+      </nav>
+    </header>
+
+    <p class="intro">
+      We introduce cyclic denoising&mdash;repeated forward and reverse diffusion at
+      controlled noise amplitudes&mdash;as an extraction attack for image diffusion models.
+      Inspired by the physics of random organization in disordered solids, and unlike prior
+      generate-and-filter attacks, it works from the model's own dynamics alone&mdash;requiring
+      no known prompts and no access to the training set. Repeated cycling drives samples
+      into ultrastable attractors, many of which decode to verbatim training images such as
+      stock photographs, brand watermarks, and web-crawl artifacts, making cyclic denoising
+      a practical auditing tool for memorization, privacy, and copyright compliance.
+    </p>
+
+    <figure class="anim">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="/cyclic-denoising/anim/shear_anneal_poster.jpg"
+             aria-label="Cyclic shear annealing: a 2D amorphous solid driven into an absorbing state while its energy descends a rugged landscape.">
+        <source src="/cyclic-denoising/anim/shear_anneal.webm" type="video/webm">
+        <source src="/cyclic-denoising/anim/shear_anneal.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        <strong>The physical picture.</strong> A disordered solid is sheared back and forth at a fixed
+        strain amplitude (left). Its particles rearrange for a few cycles, then it settles into an
+        <em>absorbing state</em>&mdash;returning to the very same configuration at the end of every cycle,
+        even as the driving continues. Stroboscopically, its energy ratchets down a rugged landscape and
+        locks into a minimum (right). Cyclic denoising applies exactly this idea to a diffusion model,
+        with noising and denoising in place of shearing, and finds the model&rsquo;s own absorbing
+        states&mdash;many of which turn out to be memorized training images.
+      </figcaption>
+    </figure>
+
+    <!-- ================================================================
+         BUILD THE FULL BLOG BELOW. Suggested sections (to be filled in):
+           - The hook / memorized-image reveal
+           - Companion animation: noise -> denoise into a memorized image
+           - The gamma-regimes story (Movies 1-4)
+           - Threat model & auditing use case
+           - Links (arXiv, code, movies), BibTeX, OG/Twitter meta
+         ================================================================ -->
+
+    <footer>
+      &ldquo;Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models.&rdquo;
+    </footer>
+  </div>
+</body>
+</html>

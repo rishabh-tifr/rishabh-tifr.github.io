@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
   <title>Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</title>
   <meta name="description" content="Project page for 'Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models'.">
   <style>
@@ -39,29 +40,6 @@
       font-weight: 600;
       margin: 0 0 12px;
     }
-    nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    nav a {
-      display: inline-block;
-      padding: 8px 16px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--card);
-      color: var(--fg);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    nav a:hover { border-color: var(--accent); color: var(--accent); }
-    nav a.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      font-weight: 600;
-    }
     .coming {
       margin: 48px 0;
       padding: 40px 28px;
@@ -73,24 +51,7 @@
     .coming .big {
       font-size: 1.25rem;
       font-weight: 600;
-      margin: 0 0 8px;
-    }
-    .coming p { color: var(--muted); margin: 0; }
-    .intro { color: var(--muted); font-size: 0.98rem; margin: 28px 0 0; }
-    figure.anim { margin: 40px 0 8px; }
-    figure.anim video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: #fff;
-    }
-    figure.anim figcaption {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.55;
-      margin-top: 12px;
+      margin: 0;
     }
     footer {
       border-top: 1px solid var(--border);
@@ -109,45 +70,10 @@
       <h1>Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</h1>
       <p class="authors">Rishabh Sharma, Stefano Martiniani</p>
       <p class="affil">New York University</p>
-      <nav>
-        <a href="./" class="active">Overview</a>
-        <a href="movies/">Supplementary Movies</a>
-      </nav>
     </header>
 
-    <p class="intro">
-      We introduce cyclic denoising&mdash;repeated forward and reverse diffusion at
-      controlled noise amplitudes&mdash;as an extraction attack for image diffusion models.
-      Inspired by the physics of random organization in disordered solids, and unlike prior
-      generate-and-filter attacks, it works from the model's own dynamics alone&mdash;requiring
-      no known prompts and no access to the training set. Repeated cycling drives samples
-      into ultrastable attractors, many of which decode to verbatim training images such as
-      stock photographs, brand watermarks, and web-crawl artifacts, making cyclic denoising
-      a practical auditing tool for memorization, privacy, and copyright compliance.
-    </p>
-
-    <figure class="anim">
-      <video autoplay muted loop playsinline preload="metadata"
-             poster="anim/shear_anneal_poster.jpg"
-             aria-label="Cyclic shear annealing: a 2D amorphous solid driven into an absorbing state while its energy descends a rugged landscape.">
-        <source src="anim/shear_anneal.webm" type="video/webm">
-        <source src="anim/shear_anneal.mp4" type="video/mp4">
-      </video>
-      <figcaption>
-        <strong>The physical picture.</strong> A disordered solid is sheared back and forth at a fixed
-        strain amplitude (left). Its particles rearrange for a few cycles, then it settles into an
-        <em>absorbing state</em>&mdash;returning to the very same configuration at the end of every cycle,
-        even as the driving continues. Stroboscopically, its energy ratchets down a rugged landscape and
-        locks into a minimum (right). Cyclic denoising applies exactly this idea to a diffusion model,
-        with noising and denoising in place of shearing, and finds the model&rsquo;s own absorbing
-        states&mdash;many of which turn out to be memorized training images.
-      </figcaption>
-    </figure>
-
     <div class="coming">
-      <p class="big">Full blog post coming soon.</p>
-      <p>In the meantime, the supplementary movies are available
-        <a href="movies/">here</a>.</p>
+      <p class="big">Project page coming soon.</p>
     </div>
 
     <footer>
