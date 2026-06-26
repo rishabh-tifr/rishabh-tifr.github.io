@@ -167,6 +167,24 @@
       </figcaption>
     </figure>
 
+    <figure class="anim">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="/cyclic-denoising/anim/cyclic_denoising_primer_poster.jpg"
+             aria-label="The cyclic-denoising protocol on Stable Diffusion: one image is repeatedly noised and denoised at a small and a large noise amplitude. At small amplitude it preserves itself and drifts slowly; at large amplitude it forgets its initial state and explores the generative landscape, re-forming into a different image each cycle.">
+        <source src="/cyclic-denoising/anim/cyclic_denoising_primer.webm" type="video/webm">
+        <source src="/cyclic-denoising/anim/cyclic_denoising_primer.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        <strong>The same protocol, on a diffusion model.</strong> One image is repeatedly noised and
+        denoised &mdash; the noise amplitude &gamma; (the slider) plays the role of the strain amplitude
+        above. At a <em>small</em> amplitude (left) the image is only lightly blurred: it preserves
+        itself and drifts slowly, cycle after cycle. At a <em>large</em> amplitude (right) it forgets
+        the memory of its initial state and begins to explore the generative landscape, re-forming into
+        a different image on every cycle. Noise is added in one shot (the slider snaps up) and removed
+        gradually (it glides back); the camera marks the stroboscopic snapshot at the end of each cycle.
+      </figcaption>
+    </figure>
+
     <!-- ================================================================
          BUILD THE FULL BLOG BELOW. Suggested sections (to be filled in):
            - The hook / memorized-image reveal
