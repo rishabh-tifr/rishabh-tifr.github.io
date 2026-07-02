@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Supplementary Videos &mdash; Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</title>
-  <meta name="description" content="Supplementary videos for 'Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models'.">
+  <title>Supplementary Movies &mdash; Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</title>
+  <meta name="description" content="Supplementary movies for 'Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models'.">
   <style>
     :root {
       --fg: #1a1a1a;
@@ -15,6 +15,8 @@
       --border: #e6e6e6;
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    #movies, #movie1, #movie2, #movie3, #movie4, #analogy { scroll-margin-top: 28px; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -87,12 +89,43 @@
       font-size: 0.85rem;
     }
     a { color: var(--accent); }
+    .primerwrap { text-align: center; margin: 30px 0 0; }
+    .primerbox {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border: 1px solid #eddedb;
+      background: #fbf6f5;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      color: var(--fg);
+      text-align: left;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .primerbox:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(179, 38, 30, 0.08); }
+    .primerbox .emoji { font-size: 1.15rem; line-height: 1; }
+    .primerbox .go { color: var(--accent); font-weight: 600; }
+    .primerbox:hover .go { text-decoration: underline; }
+    .backtop { margin: 28px 0 0; font-size: 0.85rem; }
+    .backtop a { text-decoration: none; }
+    .backtop a:hover { text-decoration: underline; }
+    /* --- physics-analogy section --- */
+    .section-divider {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 56px 0 40px;
+    }
+    #analogy h2 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 12px; }
+    #analogy .lead { color: var(--muted); font-size: 0.98rem; margin: 0 0 36px; }
+    figure.anim video { background: #fff; border-radius: 10px; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <p class="kicker">Supplementary Videos</p>
+      <p class="kicker">Supplementary Movies</p>
       <h1>Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</h1>
       <p class="authors"><a href="/">Rishabh Sharma</a>, Stefano Martiniani</p>
       <p class="affil">New York University</p>
@@ -102,11 +135,21 @@
       </nav>
     </header>
 
-    <p class="intro">
+    <p class="primerwrap">
+      <a class="primerbox" href="#analogy">
+        <span class="emoji">&#127744;</span>
+        <span><strong>Never sheared a glass?</strong>
+          <span class="go">Start with the visual primer on the physics behind our extraction attack&nbsp;&darr;</span></span>
+      </a>
+    </p>
+
+    <p class="intro" style="margin-top: 24px;">
       Stroboscopic cyclic-denoising trajectories in Stable Diffusion v1.4, shown as decoded
-      latents at the end of each forward&ndash;reverse cycle. Each video corresponds to a
+      latents at the end of each forward&ndash;reverse cycle. Each movie corresponds to a
       trajectory discussed in <a href="https://arxiv.org/abs/2606.24000" target="_blank" rel="noopener">the paper</a>.
     </p>
+
+    <span id="movies"></span><span id="movie1"></span>
 
     <figure>
       <video controls loop muted playsinline preload="metadata">
@@ -134,6 +177,8 @@
       </figcaption>
     </figure>
 
+    <span id="movie2"></span>
+
     <figure>
       <video controls loop muted playsinline preload="metadata">
         <source src="Movie2.mp4" type="video/mp4">
@@ -151,6 +196,8 @@
       </figcaption>
     </figure>
 
+    <span id="movie3"></span>
+
     <figure>
       <video controls loop muted playsinline preload="metadata">
         <source src="Movie3.mp4" type="video/mp4">
@@ -166,6 +213,8 @@
         </span>
       </figcaption>
     </figure>
+
+    <span id="movie4"></span>
 
     <figure>
       <video controls loop muted playsinline preload="metadata">
@@ -185,6 +234,99 @@
         </span>
       </figcaption>
     </figure>
+
+    <hr class="section-divider">
+
+    <section id="analogy">
+      <h2>The physics behind the protocol</h2>
+      <p class="lead">
+        Cyclic denoising imports a protocol from the physics of driven disordered systems.
+        A disordered solid sheared back and forth at a fixed strain amplitude either settles
+        into an <em>absorbing state</em> &mdash; returning to the same configuration at the
+        end of every cycle &mdash; or, above a critical amplitude, <em>yields</em> and keeps
+        rearranging forever. Diffusion models show the same two phases under cyclic
+        denoising, with the noise amplitude &gamma; playing the role of the strain
+        amplitude.
+      </p>
+
+      <figure class="anim">
+        <video autoplay muted loop playsinline preload="metadata"
+               poster="/cyclic-denoising/anim/shear_anneal_poster.jpg"
+               aria-label="Cyclic shear annealing: a 2D amorphous solid driven into an absorbing state while its energy descends a rugged landscape.">
+          <source src="/cyclic-denoising/anim/shear_anneal.webm" type="video/webm">
+          <source src="/cyclic-denoising/anim/shear_anneal.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          <span class="label">Low amplitude, below yielding &mdash; the solid anneals into an absorbing state.</span>
+          <span class="sub">
+            A disordered solid is sheared back and forth at a fixed strain amplitude (left).
+            Its particles rearrange for a few cycles, then it settles into an
+            <em>absorbing state</em>&mdash;returning to the very same configuration at the
+            end of every cycle, even as the driving continues. The energy trace (right) is
+            <em>stroboscopic</em>&mdash;one snapshot per completed shear cycle&mdash;and,
+            seen this way, the energy steps down the rugged landscape and locks into a
+            minimum. Cyclic denoising applies exactly this idea to a diffusion model, with
+            noising and denoising in place of shearing.
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="anim">
+        <video autoplay muted loop playsinline preload="metadata"
+               poster="/cyclic-denoising/anim/shear_diffusive_poster.jpg"
+               aria-label="Cyclic shear above the yield point: the same amorphous solid driven at a larger strain amplitude keeps rearranging every cycle and diffuses across the energy landscape without settling.">
+          <source src="/cyclic-denoising/anim/shear_diffusive.webm" type="video/webm">
+          <source src="/cyclic-denoising/anim/shear_diffusive.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          <span class="label">High amplitude, above yielding &mdash; the solid never settles.</span>
+          <span class="sub">
+            Drive the <em>same</em> solid harder, at a larger strain amplitude, and it
+            no longer settles. Its particles rearrange on every cycle (left), and the
+            stroboscopic configuration keeps exploring the landscape rather than locking
+            into one minimum (right): a yielded, diffusive state instead of an absorbing
+            one. The two behaviors are separated by a sharp <em>yielding transition</em> at
+            a critical strain amplitude; below it the system gets stuck, above it the
+            system flows.
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="anim">
+        <video autoplay muted loop playsinline preload="metadata"
+               poster="/cyclic-denoising/anim/cyclic_denoising_primer_poster.jpg"
+               aria-label="The cyclic-denoising protocol on Stable Diffusion: one image is repeatedly noised and denoised at a small and a large noise amplitude. At small amplitude it preserves itself and drifts slowly; at large amplitude it forgets its initial state and explores the generative landscape, re-forming into a different image each cycle.">
+          <source src="/cyclic-denoising/anim/cyclic_denoising_primer.webm" type="video/webm">
+          <source src="/cyclic-denoising/anim/cyclic_denoising_primer.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          <span class="label">The same protocol, on a diffusion model.</span>
+          <span class="sub">
+            One image is repeatedly noised and denoised&mdash;the noise amplitude &gamma;
+            (the slider) plays the role of the strain amplitude above. At a <em>small</em>
+            amplitude (left) the image is only lightly perturbed and drifts only slightly
+            from cycle to cycle&mdash;too little to explore the landscape in any
+            meaningful sense. Such trajectories eventually end in trivial fixed points
+            (<a href="#movie2">Movie&nbsp;2</a>), which return to the same state every
+            cycle, or limit cycles (<a href="#movie3">Movies&nbsp;3</a> and
+            <a href="#movie4">4</a>), which keep moving but only retrace a closed orbit;
+            neither uncovers memorized images. At a <em>large</em> amplitude (right) the model yields: the
+            image forgets its initial state and re-forms from cycle to cycle, exploring
+            the generative landscape. Over enough cycles, these wandering trajectories get
+            trapped in deep, long-lived basins, many of which decode to memorized training
+            images&mdash;<a href="#movie1">Movie&nbsp;1</a> follows one such trajectory,
+            dwelling in a basin for thousands of cycles before hopping onward.
+            Noise is added in one shot (the slider snaps up) and
+            removed gradually (it glides back). The camera that appears each time the image
+            is denoised back to &gamma;&nbsp;=&nbsp;0 marks the <em>stroboscopic
+            snapshot</em>: one frame captured per completed cycle. The trajectories in
+            Movies&nbsp;1&ndash;4 above are sequences of exactly these snapshots.
+          </span>
+        </figcaption>
+      </figure>
+
+      <p class="backtop"><a href="#movies">&uarr; Back to Supplementary Movies 1&ndash;4</a></p>
+    </section>
 
     <footer>
       Supplementary material for &ldquo;Cyclic Denoising Reveals Ultrastable Memories in
