@@ -8,6 +8,8 @@
 \usepackage{sourceserifpro}
 \usepackage{xcolor}
 
+\setlength{\emergencystretch}{1em}
+
 % Colors
 \definecolor{accent}{HTML}{333333}
 \definecolor{link}{HTML}{8B1A1A}
@@ -51,7 +53,7 @@
 \section{About}
 
 {\setlength{\parindent}{0pt}\setlength{\parskip}{0.6em}
-I'm a Simons Center Independent Postdoctoral Fellow at New York University. My current research focuses on world models and their emergent neural representations, mechanistic interpretability, and the physics of memorization and privacy in diffusion models.
+I'm a Simons Center Independent Postdoctoral Fellow at New York University, working at the intersection of AI and physics. My current research focuses on the physics of memorization and privacy in diffusion models, world models and their emergent neural representations, and \href{https://rishabh-tifr.github.io/cross-view-world-models/#animations}{mechanistic interpretability}.
 
 Previously, I completed my Ph.D.\ in computational physics at the Tata Institute of Fundamental Research, Hyderabad, with publications in \textit{Nature Physics} and \textit{Physical Review Letters} on the physics of disordered systems. I was awarded the 2025 Ramakrishna Cowsik Medal --- given for the best paper across the TIFR system by a researcher under 35 --- for my \textit{Nature Physics} publication.\par}
 
@@ -60,6 +62,19 @@ Previously, I completed my Ph.D.\ in computational physics at the Tata Institute
 
 \entry{Simons Center Independent Postdoctoral Fellow}{Jul 2025 -- present}
 {\href{https://wp.nyu.edu/sccpc/people/}{Simons Center for Computational Physical Chemistry}, New York University, USA}{}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.15em, parsep=0pt, topsep=0.1em]
+\item Invented \textbf{cyclic denoising} (first \& corresponding author; arXiv preprint, 2026), a training-data extraction attack on diffusion models inspired by the physics of random organization in periodically driven disordered systems: repeated forward--reverse diffusion at controlled noise amplitudes during generation drives samples into \textit{ultrastable} attractors --- regenerable from near-total corruption and stable across thousands of cycles --- that decode to memorized training images such as stock photos, brand watermarks, and web-crawl artifacts. More efficient than prior generate-and-filter attacks, and requires no access to the training data; demonstrated on both latent (Stable Diffusion v1.4) and pixel-space models. \href{https://rishabh-tifr.github.io/cyclic-denoising/movies/}{Video explainers of the method}.
+\item Introduced \textbf{Cross-View World Models} (first \& corresponding author; ICLR 2026 Workshop on World Models): a cross-view prediction objective --- predict the future, after an action, from a viewpoint never observed --- where near-zero overlap between input and output views forces the model to learn genuine 3D structure rather than pixel-level shortcuts, letting agents plan in whichever frame of reference suits the task. Trained viewpoint- and action-conditioned diffusion transformers (CDiT) on 4,186 minute-long gameplay episodes, each recorded simultaneously from four viewpoints. \href{https://rishabh-tifr.github.io/cross-view-world-models/}{Poster \& animations}.
+\end{itemize}
+
+\vspace{0.3em}
+\entry{Doctoral Researcher}{2019 -- 2025}
+{Tata Institute of Fundamental Research (TIFR), Hyderabad \,\textperiodcentered\, Advisor: Prof.\ Smarajit Karmakar}{}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.15em, parsep=0pt, topsep=0.1em]
+\item Ran large-scale simulation studies of driven disordered solids --- massively parallel molecular dynamics (C + MPI) on HPC clusters.
+\item Discovered a novel correspondence between two different non-equilibrium systems: internal activity (self-propulsion) anneals a glass much as external cyclic shear does, and this annealing tunes the material's failure from ductile to brittle (\textit{Nature Physics}).
+\item Developed protocols for encoding fast, fault-tolerant mechanical memories in amorphous solids (\textit{Physical Review Letters}).
+\end{itemize}
 
 % ----------------------------------------------------------------
 \section{Education}
@@ -77,17 +92,21 @@ Advisor: Prof.\ Smarajit Karmakar\\
 % ----------------------------------------------------------------
 \section{Awards \& Fellowships}
 
-\noindent\textbf{Ramakrishna Cowsik Medal}, TIFR \hfill 2025\\
-Best paper across the TIFR system by a researcher under 35.\par\vspace{0.4em}
+\noindent\textbf{\href{https://www.tifr.res.in/~endowment/endowment-awards.htm}{Ramakrishna Cowsik Medal}}, TIFR \hfill 2025\\
+Best paper across the entire TIFR system, in any field, by a researcher under 35.\par\vspace{0.4em}
 
-\noindent\textbf{Simons Center Independent Postdoctoral Fellowship}, NYU \hfill 2025\par\vspace{0.4em}
+\noindent\textbf{\href{https://wp.nyu.edu/sccpc/people/}{Simons Center Independent Postdoctoral Fellowship}}, NYU \hfill 2025\\
+Carries its own funding, unattached to any faculty lab, with complete independence in research direction.\par\vspace{0.4em}
 
-\noindent\textbf{Sarojini Damodaran International Student Travel Fellowship}, TIFR \hfill 2023\par\vspace{0.4em}
+\noindent\textbf{\href{https://www.tifr.res.in/endowment/sdf/index.html}{Sarojini Damodaran International Student Travel Fellowship}}, TIFR \hfill 2023\\
+Funded research stays at Roskilde University (Denmark) and Heinrich Heine University D\"usseldorf (Germany).\par\vspace{0.4em}
 
 % ----------------------------------------------------------------
-\section{Computing}
+\section{Technical}
 
-\noindent Have worked on HPC clusters throughout my career --- parallel molecular dynamics in C + MPI during my PhD, now training diffusion transformers and probing latent diffusion U-Nets on NYU's Torch and the Empire AI consortium's H100/H200 clusters via SLURM + Apptainer/Singularity.
+\noindent\textbf{Machine learning:} PyTorch, HuggingFace diffusers; diffusion-model internals (DDPM/DDIM samplers, latent VAEs, U-Net and DiT architectures); multi-GPU training on H100/H200 clusters (SLURM, Singularity/Apptainer).\par\vspace{0.25em}
+\noindent\textbf{GPU programming:} Numba JIT-compiled CUDA kernels for GPU-accelerated molecular dynamics in Python, developed during a research stay at Roskilde University, Denmark.\par\vspace{0.25em}
+\noindent\textbf{Scientific computing:} C and MPI for massively parallel molecular dynamics; Python scientific stack; 7+ years of HPC experience.\par
 
 % ----------------------------------------------------------------
 \section{Publications}
@@ -98,12 +117,15 @@ Best paper across the TIFR system by a researcher under 35.\par\vspace{0.4em}
 \textit{Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models.}
 arXiv preprint (2026).
 \href{https://arxiv.org/abs/2606.24000}{arXiv:2606.24000}
+\\{\small \textit{Corresponding author:} \textbf{R.\ Sharma}. \quad \href{https://rishabh-tifr.github.io/cyclic-denoising/movies/}{Video explainers of the method}.}
 
 \item \textbf{R.\ Sharma}, G.\ Hogervorst, W.\ E.\ Mackey, D.\ J.\ Heeger, S.\ Martiniani.
 \textit{Cross-View World Models.}
 {\textbf{\textcolor{link}{ICLR 2026 Workshop on World Models.}}}
 \href{https://openreview.net/forum?id=0g7De0sXWM}{OpenReview} |
-\href{https://arxiv.org/abs/2602.07277}{arXiv:2602.07277}
+\href{https://arxiv.org/abs/2602.07277}{arXiv:2602.07277} |
+\href{https://rishabh-tifr.github.io/cross-view-world-models/}{Poster \& animations}
+\\{\small \textit{Corresponding authors:} \textbf{R.\ Sharma}, S.\ Martiniani.}
 
 \item \textbf{R.\ Sharma}, S.\ Karmakar.
 \textit{Activity-induced annealing leads to a ductile-to-brittle transition in amorphous solids.}
@@ -111,12 +133,12 @@ arXiv preprint (2026).
 \href{https://doi.org/10.1038/s41567-024-02724-5}{doi:10.1038/s41567-024-02724-5}
 \\Featured in \href{https://www.nature.com/articles/s41567-025-02900-1}{Nature Physics News \& Views}.
 
-\item M.\ Adhikari\textsuperscript{*}, \textbf{R.\ Sharma}\textsuperscript{*}, S.\ Karmakar.
+\item \{M.\ Adhikari, \textbf{R.\ Sharma}\}\textsuperscript{*}, S.\ Karmakar.
 \textit{Encoding fast and fault-tolerant memories in bulk and nanoscale amorphous solids.}
 {\textbf{\textcolor{link}{Physical Review Letters}}} (2025).
 \href{https://doi.org/10.1103/PhysRevLett.134.018202}{doi:10.1103/PhysRevLett.134.018202}
 
-\item U.\ A.\ Dattani\textsuperscript{*}, \textbf{R.\ Sharma}\textsuperscript{*}, S.\ Karmakar, P.\ Chaudhuri.
+\item \{U.\ A.\ Dattani, \textbf{R.\ Sharma}\}\textsuperscript{*}, S.\ Karmakar, P.\ Chaudhuri.
 \textit{Cavitation instabilities in amorphous solids via secondary mechanical perturbations.}
 arXiv preprint (2023).
 \href{https://arxiv.org/abs/2303.04529}{arXiv:2303.04529}
@@ -124,7 +146,7 @@ arXiv preprint (2023).
 \end{enumerate}
 
 \vspace{-0.5em}
-\noindent{\small \textsuperscript{*}Co-first author.}
+\noindent{\small \textsuperscript{*}Co-first authors.}
 
 % ----------------------------------------------------------------
 \section{Research Visits}
