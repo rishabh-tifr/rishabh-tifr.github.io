@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cross-View World Models &mdash; Poster &amp; Animations</title>
+  <meta name="description" content="ICLR 2026 Workshop on World Models poster and layer-by-layer probe animations for 'Cross-View World Models'.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cross-View World Models — Poster &amp; Animations">
+  <meta property="og:description" content="ICLR 2026 Workshop on World Models: poster and layer-by-layer probe animations of a view-invariant ring code for heading.">
+  <meta property="og:url" content="https://rishabh-tifr.github.io/cross-view-world-models/">
+  <meta property="og:image" content="https://rishabh-tifr.github.io/cross-view-world-models/og_image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --fg: #1a1a1a;
+      --muted: #555;
+      --accent: #b3261e;
+      --bg: #ffffff;
+      --card: #fafafa;
+      --border: #e6e6e6;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    #poster, #animations, #citation { scroll-margin-top: 28px; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 36px; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 10px; }
+    h2 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 12px; }
+    .authors { color: var(--muted); font-size: 1rem; margin: 0 0 4px; }
+    .affil { color: var(--muted); font-size: 0.9rem; margin: 0; }
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+    .intro { color: var(--muted); font-size: 0.98rem; margin: 28px 0 40px; }
+    .lead { color: var(--muted); font-size: 0.98rem; margin: 0 0 32px; }
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    nav a {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    nav a:hover { border-color: var(--accent); color: var(--accent); }
+    figure { margin: 0 0 48px; }
+    figure img, figure video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    figcaption {
+      font-size: 0.95rem;
+      color: var(--fg);
+      margin-top: 14px;
+    }
+    figcaption .label { font-weight: 700; }
+    figcaption .sub { color: var(--muted); }
+    .section-divider {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 56px 0 40px;
+    }
+    pre {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-size: 0.8rem;
+      line-height: 1.55;
+      overflow-x: auto;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      padding-top: 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">ICLR 2026 Workshop on World Models</p>
+      <h1>Cross-View World Models</h1>
+      <p class="authors"><a href="/">Rishabh Sharma</a>, Gijs Hogervorst, Wayne E. Mackey, David J. Heeger, Stefano Martiniani</p>
+      <p class="affil">New York University &middot; Statespace</p>
+      <nav>
+        <a href="/">&larr; Rishabh Sharma &middot; Home</a>
+        <a href="https://openreview.net/forum?id=0g7De0sXWM" target="_blank" rel="noopener">OpenReview</a>
+        <a href="https://arxiv.org/abs/2602.07277" target="_blank" rel="noopener">arXiv preprint</a>
+        <a href="xvwm_iclr2026_poster.pdf" target="_blank" rel="noopener">Poster (PDF)</a>
+      </nav>
+    </header>
+
+    <p class="intro">
+      Cross-View World Models (XVWM) predict future frames from any viewpoint given context
+      from another &mdash; egocentric, bird&rsquo;s-eye, over-the-shoulder, or front-facing &mdash;
+      and in doing so develop a view-invariant spatial code: an internal &ldquo;GPS&rdquo; that
+      localizes and orients from visual cues alone. This poster was presented at the
+      ICLR 2026 Workshop on World Models (Understanding, Modelling and Scaling) in
+      Rio de Janeiro, April 2026, and extends the
+      <a href="https://arxiv.org/abs/2602.07277" target="_blank" rel="noopener">arXiv preprint</a>
+      with layer-by-layer analyses of the model&rsquo;s internal representations.
+    </p>
+
+    <span id="poster"></span>
+
+    <figure>
+      <a href="xvwm_iclr2026_poster.pdf" target="_blank" rel="noopener">
+        <img src="poster_preview.jpg" alt="Cross-View World Models poster, ICLR 2026 Workshop on World Models">
+      </a>
+      <figcaption>
+        <span class="sub">Click the poster for the full-resolution PDF (6.8&nbsp;MB).</span>
+      </figcaption>
+    </figure>
+
+    <hr class="section-divider">
+
+    <section id="animations">
+      <h2>Probing the internal representation: a ring manifold for heading</h2>
+      <p class="lead">
+        The two animations linked by the QR codes on the poster probe how the model encodes
+        heading. A linear probe trained to read heading from the hidden state defines a
+        two-dimensional readout plane (a cos&nbsp;&psi; axis and a sin&nbsp;&psi; axis); each
+        panel shows hidden states projected onto that plane, layer by layer, colored by the
+        agent&rsquo;s original heading, while an injected heading change &Delta;&psi; (yaw)
+        sweeps back and forth (dial on the right).
+      </p>
+
+      <figure>
+        <video controls autoplay loop muted playsinline preload="metadata"
+               aria-label="Animation: egocentric hidden-state activity in the ego probe basis, all 24 layers; a ring of heading-colored points rotates rigidly as the injected heading change sweeps.">
+          <source src="ring_matched.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          <a href="/iclr-2026/probe_ring_rotation_ego_grid.gif">View the GIF version</a>.
+        </video>
+        <figcaption>
+          <span class="label">Matched view &mdash; heading is stored on a ring, and injected yaw rotates it.</span>
+          <span class="sub">
+            Egocentric hidden states in the ego probe plane. Across the early layers a ring
+            slowly begins to take shape, but it is indifferent to the injected yaw. In the
+            middle transformer layers the states organize onto a clean ring manifold ordered
+            by heading &mdash; a circular code. Only there, after the view-invariant code
+            has formed (next animation), does sweeping &Delta;&psi; rigidly rotate it: the
+            model updates heading by rotating this ring &mdash; angular-velocity
+            integration, carried out in representation space. The poster&rsquo;s QR code
+            links to the <a href="/iclr-2026/probe_ring_rotation_ego_grid.gif">GIF version</a>
+            of this animation.
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <video controls autoplay loop muted playsinline preload="metadata"
+               aria-label="Animation: bird's-eye-view hidden-state activity in the ego probe basis, all 24 layers; the same heading ring appears and rotates in the middle layers.">
+          <source src="ring_crossview.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          <a href="/iclr-2026/probe_ring_rotation_bev_grid.gif">View the GIF version</a>.
+        </video>
+        <figcaption>
+          <span class="label">Cross-view &mdash; the same ring in the same basis: the code is view-invariant.</span>
+          <span class="sub">
+            Bird&rsquo;s-eye-view hidden states projected onto the <em>same</em> readout
+            plane: the probe was trained only on egocentric activity, and is applied to the
+            BEV states unchanged &mdash; no re-fitting. In the early layers nothing
+            transfers &mdash; the features are view-specific. In the middle layers &mdash;
+            the view-invariant section of the network &mdash; the same ring reappears,
+            ordered the same way, and the injected yaw rotates it just as rigidly: one
+            linear readout captures heading in both views. The ring is a shared code, not a
+            view-specific artifact. The poster&rsquo;s QR code links to the
+            <a href="/iclr-2026/probe_ring_rotation_bev_grid.gif">GIF version</a> of this
+            animation.
+          </span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <hr class="section-divider">
+
+    <section id="citation">
+      <h2>Citation</h2>
+<pre>@inproceedings{
+sharma2026crossview,
+title={Cross-View World Models},
+author={Rishabh Sharma and Gijs Hogervorst and Wayne Mackey and David Heeger and Stefano Martiniani},
+booktitle={ICLR 2026 the 2nd Workshop on World Models: Understanding, Modelling and Scaling},
+year={2026},
+url={https://openreview.net/forum?id=0g7De0sXWM}
+}</pre>
+    </section>
+
+    <footer>
+      Poster and animations for &ldquo;Cross-View World Models,&rdquo; ICLR 2026 Workshop on
+      World Models.
+    </footer>
+  </div>
+</body>
+</html>
