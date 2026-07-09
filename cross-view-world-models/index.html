@@ -23,7 +23,7 @@
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    #poster, #animations, #citation { scroll-margin-top: 28px; }
+    #poster, #animations, #videos, #citation, #demo, #trajectories, #dataset { scroll-margin-top: 28px; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -85,6 +85,43 @@
     }
     figcaption .label { font-weight: 700; }
     figcaption .sub { color: var(--muted); }
+    .posterwrap { position: relative; }
+    .posterwrap .hotspot {
+      position: absolute;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .posterwrap .hotspot span {
+      opacity: 0;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin: 8px;
+      transition: opacity 0.15s;
+    }
+    .posterwrap:hover .hotspot { border-color: rgba(179, 38, 30, 0.35); }
+    .posterwrap .hotspot:hover,
+    .posterwrap .hotspot:focus-visible { border-color: var(--accent); background: rgba(179, 38, 30, 0.05); }
+    .posterwrap .hotspot:hover span,
+    .posterwrap .hotspot:focus-visible span { opacity: 1; }
+    .vidstack { display: grid; gap: 12px; }
+    .vidgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 560px) { .vidgrid { grid-template-columns: 1fr; } }
+    .vidgrid .cell { margin: 0; }
+    .vidlabel {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      margin: 6px 0 0;
+    }
     .section-divider {
       border: 0;
       border-top: 1px solid var(--border);
@@ -138,11 +175,22 @@
     <span id="poster"></span>
 
     <figure>
-      <a href="xvwm_iclr2026_poster.pdf" target="_blank" rel="noopener">
-        <img src="poster_preview.jpg" alt="Cross-View World Models poster, ICLR 2026 Workshop on World Models">
-      </a>
+      <div class="posterwrap">
+        <a href="xvwm_iclr2026_poster.pdf" target="_blank" rel="noopener" aria-label="Open the full-resolution poster PDF">
+          <img src="poster_preview.jpg" alt="Cross-View World Models poster, ICLR 2026 Workshop on World Models">
+        </a>
+        <a class="hotspot" href="#demo" style="left: 2.5%; top: 30.8%; width: 39.5%; height: 23%;"
+           aria-label="Jump to the prediction demo video"><span>See it live &darr;</span></a>
+        <a class="hotspot" href="#trajectories" style="left: 43.4%; top: 15%; width: 55.8%; height: 22.6%;"
+           aria-label="Jump to the internal-GPS trajectory videos"><span>See it live &darr;</span></a>
+        <a class="hotspot" href="#animations" style="left: 43.4%; top: 64.2%; width: 55.8%; height: 35.2%;"
+           aria-label="Jump to the heading-ring probe animations"><span>See it live &darr;</span></a>
+      </div>
       <figcaption>
-        <span class="sub">Click the poster for the full-resolution PDF (6.8&nbsp;MB).</span>
+        <span class="sub">Click the poster for the full-resolution PDF (6.8&nbsp;MB) &mdash; or
+        watch its panels live below: the <a href="#demo">prediction grid</a>, the
+        <a href="#trajectories">internal-GPS trajectories</a>, and the
+        <a href="#animations">heading-ring probe animations</a>.</span>
       </figcaption>
     </figure>
 
@@ -202,6 +250,97 @@
             view-specific artifact. The poster&rsquo;s QR code links to the
             <a href="/iclr-2026/probe_ring_rotation_bev_grid.gif">GIF version</a> of this
             animation.
+          </span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <hr class="section-divider">
+
+    <section id="videos">
+      <h2>Videos from the paper</h2>
+
+      <figure id="demo">
+        <video controls autoplay loop muted playsinline preload="metadata"
+               aria-label="Video: grid of model predictions. Each row is one input view (egocentric or bird's-eye); columns show the ground-truth input and the model's predictions rendered in both views.">
+          <source src="demo_all_views.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>
+          <span class="label">The model in action &mdash; one context, predictions in both views.</span>
+          <span class="sub">
+            Each row is one input view: egocentric on top, bird&rsquo;s-eye (BEV) below. The
+            left column is the ground-truth context; from it, the model predicts the scene
+            0.2&nbsp;s ahead at each instant, rendered egocentrically (middle) and in
+            bird&rsquo;s-eye view (right). Watch the sky in the bottom row: the BEV context
+            carries no information about the sky, so the model samples one &mdash; a
+            one-to-many prediction, and evidence that it has learned spatial structure
+            rather than memorized input&ndash;output pairs.
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure id="trajectories">
+        <div class="vidstack">
+          <video controls autoplay loop muted playsinline preload="metadata"
+                 aria-label="Video: agent walking an egocentric path (left); ground-truth bird's-eye trajectory (middle) next to the trajectory the model imagines (right), traced over time.">
+            <source src="trajectory_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video controls autoplay loop muted playsinline preload="metadata"
+                 aria-label="Video: a second episode of the same trajectory comparison.">
+            <source src="trajectory_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <figcaption>
+          <span class="label">Following the path on the map &mdash; the internal &ldquo;GPS.&rdquo;</span>
+          <span class="sub">
+            The agent walks a path the model sees only egocentrically (left). Middle: the
+            true bird&rsquo;s-eye trajectory; right: the trajectory the model imagines from
+            the egocentric input, traced over time. Egocentric movements transfer
+            consistently to the imagined map &mdash; two example episodes.
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure id="dataset">
+        <div class="vidgrid">
+          <div class="cell">
+            <video controls loop muted playsinline preload="metadata" poster="view_egocentric_poster.jpg"
+                   aria-label="Video: one minute of gameplay from the egocentric camera.">
+              <source src="view_egocentric.mp4" type="video/mp4">
+            </video>
+            <p class="vidlabel">Egocentric</p>
+          </div>
+          <div class="cell">
+            <video controls loop muted playsinline preload="metadata" poster="view_bev_poster.jpg"
+                   aria-label="Video: the same minute from the bird's-eye camera, with the agent's position-and-heading marker.">
+              <source src="view_bev.mp4" type="video/mp4">
+            </video>
+            <p class="vidlabel">Bird&rsquo;s-eye (BEV)</p>
+          </div>
+          <div class="cell">
+            <video controls loop muted playsinline preload="metadata" poster="view_shoulder_poster.jpg"
+                   aria-label="Video: the same minute from the over-the-shoulder camera.">
+              <source src="view_shoulder.mp4" type="video/mp4">
+            </video>
+            <p class="vidlabel">Over-the-shoulder</p>
+          </div>
+          <div class="cell">
+            <video controls loop muted playsinline preload="metadata" poster="view_front_poster.jpg"
+                   aria-label="Video: the same minute from the front-facing camera.">
+              <source src="view_front.mp4" type="video/mp4">
+            </video>
+            <p class="vidlabel">Front-facing</p>
+          </div>
+        </div>
+        <figcaption>
+          <span class="label">The four viewpoints of the dataset.</span>
+          <span class="sub">
+            One minute of gameplay recorded simultaneously from the four cameras, along
+            with the agent&rsquo;s actions. 4,186 such minute-long episodes make up the
+            training data.
           </span>
         </figcaption>
       </figure>
