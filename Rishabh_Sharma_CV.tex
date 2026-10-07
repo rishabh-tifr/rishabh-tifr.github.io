@@ -1,186 +1,181 @@
 \documentclass[11pt,letterpaper]{article}
-
-\usepackage[margin=0.85in]{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{titlesec}
+\usepackage[margin=0.68in,top=0.62in,bottom=0.65in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{sourceserifpro}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
 \usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
 
-\setlength{\emergencystretch}{1em}
-
-% Colors
-\definecolor{accent}{HTML}{333333}
-\definecolor{link}{HTML}{8B1A1A}
-
-% Hyperref setup
-\hypersetup{colorlinks=true, linkcolor=link, urlcolor=link, citecolor=link, pdftitle={Rishabh Sharma -- CV}, pdfauthor={Rishabh Sharma}}
-
-% Section formatting
-\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{1.2em}{0.6em}
-
-% Remove page numbers (optional, comment out to keep them)
-% \pagenumbering{gobble}
-
-% Custom commands
-\newcommand{\entry}[4]{%
-  \noindent\textbf{#1}\hfill\textit{#2}\\
-  #3\hfill#4\par\vspace{0.4em}%
-}
-
-\newcommand{\paper}[4]{%
-  \noindent #1\\
-  \textit{#2}\\
-  #3 \hfill #4\par\vspace{0.5em}%
-}
+\definecolor{accent}{HTML}{173B52}
+\definecolor{muted}{HTML}{555D65}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent,
+  pdftitle={Rishabh Sharma | Research CV},pdfauthor={Rishabh Sharma},
+  pdfsubject={Interpretability, AI alignment, AI for science, and automated scientific discovery}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\urlstyle{same}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{9pt}{6pt}
+\setlist[itemize]{leftmargin=1.15em,itemsep=2pt,parsep=0pt,topsep=2pt,partopsep=0pt}
+\setlist[enumerate]{leftmargin=1.65em,itemsep=6pt,parsep=0pt,topsep=2pt,partopsep=0pt,label={[\arabic*]}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small\color{muted}Rishabh Sharma}
+\fancyfoot[R]{\small\color{muted}\thepage\,/\,2}
+\setlength{\footskip}{23pt}
+\newcommand{\role}[3]{\textbf{#1}\hfill\textit{#2}\\#3\par}
+\newcommand{\project}[3]{\vspace{6pt}\textbf{#1}\hfill{\small #2}\par\vspace{1pt}{\color{accent}#3\par}}
 
 \begin{document}
 
-% Header
-\begin{center}
-  {\LARGE\bfseries Rishabh Sharma}\\\vspace{0.3em}
-  Simons Center Independent Postdoctoral Fellow, New York University\\\vspace{0.2em}
-  \href{mailto:rs10125@nyu.edu}{rs10125@nyu.edu} \quad
-  \href{https://rishabh-tifr.github.io}{rishabh-tifr.github.io} \quad
-  \href{https://scholar.google.com/citations?user=tXkkMfYAAAAJ&hl=en}{Google Scholar} \quad
-  \href{https://orcid.org/0009-0003-5320-6141}{ORCID} \quad
-  \href{https://www.linkedin.com/in/rishabh-nyu/}{LinkedIn}
-\end{center}
+{\fontsize{25}{28}\selectfont\bfseries Rishabh Sharma}\par
+\vspace{3pt}
+{\large \href{https://wp.nyu.edu/sccpc/people/}{Simons Center Independent Postdoctoral Fellow, New York University}}\par
+\vspace{4pt}
+{\small New York, NY, USA \enspace\textbar\enspace
+\href{mailto:rs10125@nyu.edu}{rs10125@nyu.edu} \enspace\textbar\enspace
+\href{https://rishabh-tifr.github.io}{rishabh-tifr.github.io} \enspace\textbar\enspace
+\href{https://scholar.google.com/citations?user=tXkkMfYAAAAJ&hl=en}{Google Scholar} \enspace\textbar\enspace
+\href{https://www.linkedin.com/in/rishabh-nyu/}{LinkedIn}}\par
+\vspace{9pt}
+AI researcher and physicist using statistical physics to understand how AI models store information
+and build representations. Since joining NYU in July 2025, I have developed cyclic denoising,
+a memorization probe and extraction attack for diffusion models
+(\href{https://arxiv.org/abs/2606.24000}{\textbf{NeurIPS 2026, Main Track}}), and Cross-View World Models
+(\href{https://openreview.net/forum?id=0g7De0sXWM}{\textbf{ICLR 2026 Workshop on World Models}}).
+I am first author and a corresponding author on both papers.\par\vspace{4pt}
+My doctoral research was published in
+\href{https://doi.org/10.1038/s41567-024-02724-5}{\textbf{\textit{Nature Physics}}} and
+\href{https://doi.org/10.1103/PhysRevLett.134.018202}{\textbf{\textit{Physical Review Letters} (PRL)}}.
+For the \textit{Nature Physics} work, featured in
+\href{https://www.nature.com/articles/s41567-025-02900-1}{\textit{Nature Physics News \& Views}}, I received the
+\href{https://www.tifr.res.in/~endowment/endowment-awards.htm}{\textbf{2025 Ramakrishna Cowsik Medal}}:
+best paper across the entire TIFR system, in any field, by a researcher under 35.\par\vspace{5pt}
+{\raggedright\textbf{Interests:} Mechanistic interpretability; AI alignment; AI for science;
+\mbox{automated scientific discovery; world models.}\par}
 
-% ----------------------------------------------------------------
-\section{About}
+\section{Research Experience}
+\role{Simons Center Independent Postdoctoral Fellow}{Jul 2025 -- present}
+{Simons Center for Computational Physical Chemistry, New York University}
 
-{\setlength{\parindent}{0pt}\setlength{\parskip}{0.6em}
-I'm a Simons Center Independent Postdoctoral Fellow at New York University, working at the intersection of AI and physics. My current research focuses on the physics of memorization and privacy in diffusion models, world models and their emergent neural representations, and \href{https://rishabh-tifr.github.io/cross-view-world-models/#animations}{mechanistic interpretability}.
-
-Previously, I completed my Ph.D.\ in computational physics at the Tata Institute of Fundamental Research, Hyderabad, with publications in \textit{Nature Physics} and \textit{Physical Review Letters} on the physics of disordered systems. I was awarded the 2025 Ramakrishna Cowsik Medal --- given for the best paper across the TIFR system by a researcher under 35 --- for my \textit{Nature Physics} publication.\par}
-
-% ----------------------------------------------------------------
-\section{Positions}
-
-\entry{Simons Center Independent Postdoctoral Fellow}{Jul 2025 -- present}
-{\href{https://wp.nyu.edu/sccpc/people/}{Simons Center for Computational Physical Chemistry}, New York University, USA}{}
-\begin{itemize}[leftmargin=1.2em, itemsep=0.15em, parsep=0pt, topsep=0.1em]
-\item Invented \textbf{cyclic denoising} (first \& corresponding author; arXiv preprint, 2026), a training-data extraction attack on diffusion models inspired by the physics of random organization in periodically driven disordered systems: repeated forward--reverse diffusion at controlled noise amplitudes during generation drives samples into \textit{ultrastable} attractors --- regenerable from near-total corruption and stable across thousands of cycles --- that decode to memorized training images such as stock photos, brand watermarks, and web-crawl artifacts. More efficient than prior generate-and-filter attacks, and requires no access to the training data; demonstrated on both latent (Stable Diffusion v1.4) and pixel-space models. \href{https://rishabh-tifr.github.io/cyclic-denoising/movies/}{Video explainers of the method}.
-\item Introduced \textbf{Cross-View World Models} (first \& corresponding author; ICLR 2026 Workshop on World Models): a cross-view prediction objective --- predict the future, after an action, from a viewpoint never observed --- where near-zero overlap between input and output views forces the model to learn genuine 3D structure rather than pixel-level shortcuts, letting agents plan in whichever frame of reference suits the task. Trained viewpoint- and action-conditioned diffusion transformers (CDiT) on 4,186 minute-long gameplay episodes, each recorded simultaneously from four viewpoints. \href{https://rishabh-tifr.github.io/cross-view-world-models/}{Poster \& animations}.
+\project{Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models}
+{\href{https://arxiv.org/abs/2606.24000}{Paper} \enspace\textbar\enspace
+\href{https://rishabh-tifr.github.io/cyclic-denoising/movies/}{Landscape animations}}
+{\textbf{NeurIPS 2026, Main Track}}
+\begin{itemize}
+\item \textbf{Invented cyclic denoising}, translating Ph.D. insights on memory and annealing in driven
+disordered systems into an extraction attack and dynamical probe. Controlled forward/reverse diffusion
+cycles reveal a \textbf{basin-hopping picture} of the generative landscape: memorized images occupy
+ultrastable basins, persist for \textbf{thousands of cycles}, and regenerate after near-total corruption.
+\item Efficiently \textbf{recovers memorized training images} even when training captions are unavailable,
+a setting where caption-dependent extraction attacks cannot operate. Finds candidates in
+\textbf{Stable Diffusion v1.4 and a pixel-space DDPM} through long-time dynamics with sampler-level
+control, requiring no prompts, prior training-data knowledge, auxiliary
+detectors, gradients, or weight inspection.
 \end{itemize}
 
-\vspace{0.3em}
-\entry{Doctoral Researcher}{2019 -- 2025}
-{Tata Institute of Fundamental Research (TIFR), Hyderabad \,\textperiodcentered\, Advisor: Prof.\ Smarajit Karmakar}{}
-\begin{itemize}[leftmargin=1.2em, itemsep=0.15em, parsep=0pt, topsep=0.1em]
-\item Ran large-scale simulation studies of driven disordered solids --- massively parallel molecular dynamics (C + MPI) on HPC clusters.
-\item Discovered a novel correspondence between two different non-equilibrium systems: internal activity (self-propulsion) anneals a glass much as external cyclic shear does, and this annealing tunes the material's failure from ductile to brittle (\textit{Nature Physics}).
-\item Developed protocols for encoding fast, fault-tolerant mechanical memories in amorphous solids (\textit{Physical Review Letters}).
+\project{Cross-View World Models}
+{\href{https://arxiv.org/abs/2602.07277}{Paper} \enspace\textbar\enspace
+\href{https://rishabh-tifr.github.io/cross-view-world-models/}{Project \& demos}}
+{\href{https://openreview.net/forum?id=0g7De0sXWM}{\textbf{ICLR 2026 Workshop on World Models}}
+}
+\begin{itemize}
+\item Led a collaboration with NYU neuroscientists and industry partner Statespace. Introduced an
+objective to predict future observations from another viewpoint, training viewpoint- and
+action-conditioned \textbf{diffusion transformers} on 4,186 one-minute Aimlabs episodes from four synchronized cameras.
+\item Identified a \textbf{view-invariant ``cognitive map''} in middle transformer layers: linear pose probes
+transfer between egocentric and bird's-eye views without retraining. Yaw interventions rigidly rotate
+its heading ring by the commanded angle, leaving earlier, view-dependent heading unchanged.
 \end{itemize}
 
-% ----------------------------------------------------------------
-\section{Education}
+\vspace{4pt}
+\role{Doctoral Researcher}{2019 -- 2025}
+{Tata Institute of Fundamental Research (TIFR), Hyderabad, India}
+\begin{itemize}
+\item Discovered a correspondence between activity-induced and cyclic-shear annealing in amorphous
+solids, linking annealing to a ductile-to-brittle transition
+(\href{https://doi.org/10.1038/s41567-024-02724-5}{\textbf{\textit{Nature Physics}}}, 2025;
+featured in \href{https://www.nature.com/articles/s41567-025-02900-1}{\textit{News \& Views}}).
+\item Developed fast, fault-tolerant mechanical-memory protocols
+(\href{https://doi.org/10.1103/PhysRevLett.134.018202}{\textbf{\textit{Physical Review Letters}}},
+2025; co-first author). Conducted large-scale molecular-dynamics simulations using \textbf{C and MPI}
+on HPC clusters.
+\end{itemize}
 
-\noindent\textbf{Integrated Ph.D. in Physics}\hfill\textit{2019 -- 2025}\\
-Tata Institute of Fundamental Research (TIFR), Hyderabad, India\\
-Advisor: Prof.\ Smarajit Karmakar\\
-\textit{Thesis: Annealing and Memory Effects in Active and Passive Amorphous Solids}\par\vspace{0.4em}
+\section{Technical Skills}
+\textbf{Machine learning:} Python, PyTorch, Hugging Face Diffusers; DDPM/DDIM, latent VAEs, U-Nets, DiTs.\par\vspace{3pt}
+\textbf{Training \& HPC:} Multi-GPU H100/H200 training; Slurm, Apptainer/Singularity; C/MPI; 7+ years in HPC.\par\vspace{3pt}
+\textbf{GPU programming:} Built Numba CUDA kernels for molecular dynamics (Roskilde University, Denmark).
 
-\vspace{0.2em}
+\newpage
 
-\entry{B.E. in Mechanical Engineering}{2014 -- 2018}
-{Panjab University, Chandigarh, India}{}
-
-% ----------------------------------------------------------------
-\section{Awards \& Fellowships}
-
-\noindent\textbf{\href{https://www.tifr.res.in/~endowment/endowment-awards.htm}{Ramakrishna Cowsik Medal}}, TIFR \hfill 2025\\
-Best paper across the entire TIFR system, in any field, by a researcher under 35.\par\vspace{0.4em}
-
-\noindent\textbf{\href{https://wp.nyu.edu/sccpc/people/}{Simons Center Independent Postdoctoral Fellowship}}, NYU \hfill 2025\\
-Carries its own funding, unattached to any faculty lab, with complete independence in research direction.\par\vspace{0.4em}
-
-\noindent\textbf{\href{https://www.tifr.res.in/endowment/sdf/index.html}{Sarojini Damodaran International Student Travel Fellowship}}, TIFR \hfill 2023\\
-Funded research stays at Roskilde University (Denmark) and Heinrich Heine University D\"usseldorf (Germany).\par\vspace{0.4em}
-
-% ----------------------------------------------------------------
-\section{Technical}
-
-\noindent\textbf{Machine learning:} PyTorch, HuggingFace diffusers; diffusion-model internals (DDPM/DDIM samplers, latent VAEs, U-Net and DiT architectures); multi-GPU training on H100/H200 clusters (SLURM, Singularity/Apptainer).\par\vspace{0.25em}
-\noindent\textbf{GPU programming:} Numba JIT-compiled CUDA kernels for GPU-accelerated molecular dynamics in Python, developed during a research stay at Roskilde University, Denmark.\par\vspace{0.25em}
-\noindent\textbf{Scientific computing:} C and MPI for massively parallel molecular dynamics; Python scientific stack; 7+ years of HPC experience.\par
-
-% ----------------------------------------------------------------
 \section{Publications}
+\begin{enumerate}
+\item \textbf{R. Sharma}, S. Martiniani.
+\href{https://arxiv.org/abs/2606.24000}{\textit{Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models.}}\\
+\textbf{NeurIPS 2026, Main Track}. arXiv:2606.24000.\\
+{\small First and corresponding author: R. Sharma.}
 
-\begin{enumerate}[leftmargin=1.5em, label={[\arabic*]}]
+\item \textbf{R. Sharma}, G. Hogervorst, W. E. Mackey, D. J. Heeger, S. Martiniani.
+\href{https://arxiv.org/abs/2602.07277}{\textit{Cross-View World Models.}}\\
+\href{https://openreview.net/forum?id=0g7De0sXWM}{\textbf{ICLR 2026 Workshop on World Models}}.
+arXiv:2602.07277.\\
+{\small First and co-corresponding author: R. Sharma.}
 
-\item \textbf{R.\ Sharma}, S.\ Martiniani.
-\textit{Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models.}
-arXiv preprint (2026).
-\href{https://arxiv.org/abs/2606.24000}{arXiv:2606.24000}
-\\{\small \textit{Corresponding author:} \textbf{R.\ Sharma}. \quad \href{https://rishabh-tifr.github.io/cyclic-denoising/movies/}{Video explainers of the method}.}
+\item \textbf{R. Sharma}, S. Karmakar.
+\href{https://doi.org/10.1038/s41567-024-02724-5}{\textit{Activity-induced annealing leads to a ductile-to-brittle transition in amorphous solids.}}
+\textbf{Nature Physics} (2025).\\
+{\small Featured in \href{https://www.nature.com/articles/s41567-025-02900-1}{\textit{Nature Physics News \& Views}}.}
 
-\item \textbf{R.\ Sharma}, G.\ Hogervorst, W.\ E.\ Mackey, D.\ J.\ Heeger, S.\ Martiniani.
-\textit{Cross-View World Models.}
-{\textbf{\textcolor{link}{ICLR 2026 Workshop on World Models.}}}
-\href{https://openreview.net/forum?id=0g7De0sXWM}{OpenReview} |
-\href{https://arxiv.org/abs/2602.07277}{arXiv:2602.07277} |
-\href{https://rishabh-tifr.github.io/cross-view-world-models/}{Poster \& animations}
-\\{\small \textit{Corresponding authors:} \textbf{R.\ Sharma}, S.\ Martiniani.}
+\item M. Adhikari\textsuperscript{*}, \textbf{R. Sharma}\textsuperscript{*}, S. Karmakar.
+\href{https://doi.org/10.1103/PhysRevLett.134.018202}{\textit{Encoding fast and fault-tolerant memories in bulk and nanoscale amorphous solids.}}
+\textbf{Physical Review Letters} (2025).
 
-\item \textbf{R.\ Sharma}, S.\ Karmakar.
-\textit{Activity-induced annealing leads to a ductile-to-brittle transition in amorphous solids.}
-{\textbf{\textcolor{link}{Nature Physics}}} (2025).
-\href{https://doi.org/10.1038/s41567-024-02724-5}{doi:10.1038/s41567-024-02724-5}
-\\Featured in \href{https://www.nature.com/articles/s41567-025-02900-1}{Nature Physics News \& Views}.
-
-\item \{M.\ Adhikari, \textbf{R.\ Sharma}\}\textsuperscript{*}, S.\ Karmakar.
-\textit{Encoding fast and fault-tolerant memories in bulk and nanoscale amorphous solids.}
-{\textbf{\textcolor{link}{Physical Review Letters}}} (2025).
-\href{https://doi.org/10.1103/PhysRevLett.134.018202}{doi:10.1103/PhysRevLett.134.018202}
-
-\item \{U.\ A.\ Dattani, \textbf{R.\ Sharma}\}\textsuperscript{*}, S.\ Karmakar, P.\ Chaudhuri.
-\textit{Cavitation instabilities in amorphous solids via secondary mechanical perturbations.}
-arXiv preprint (2023).
-\href{https://arxiv.org/abs/2303.04529}{arXiv:2303.04529}
-
+\item U. A. Dattani\textsuperscript{*}, \textbf{R. Sharma}\textsuperscript{*}, S. Karmakar, P. Chaudhuri.
+\href{https://arxiv.org/abs/2303.04529}{\textit{Cavitation instabilities in amorphous solids via secondary mechanical perturbations.}}
+arXiv preprint (2023). arXiv:2303.04529.
 \end{enumerate}
+{\small \textsuperscript{*}Co-first authors.}
 
-\vspace{-0.5em}
-\noindent{\small \textsuperscript{*}Co-first authors.}
+\section{Education}
+\role{Integrated Ph.D. in Physics}{2019 -- 2025}
+{Tata Institute of Fundamental Research (TIFR), Hyderabad, India}
+Advisor: Prof. Smarajit Karmakar.\\
+{\small Thesis: \textit{Annealing and Memory Effects in Active and Passive Amorphous Solids.}}\par
+\vspace{6pt}
+\role{B.E. in Mechanical Engineering}{2014 -- 2018}
+{Panjab University, Chandigarh, India}
 
-% ----------------------------------------------------------------
-\section{Research Visits}
+\section{Awards \& Fellowships}
+\textbf{\href{https://www.tifr.res.in/~endowment/endowment-awards.htm}{Ramakrishna Cowsik Medal}}, TIFR, for the \textit{Nature Physics} paper\hfill 2025\par\vspace{5pt}
+\textbf{\href{https://wp.nyu.edu/sccpc/people/}{Simons Center Independent Postdoctoral Fellowship}}, NYU\hfill 2025 -- 2027\\
+Fully funded fellowship with independence in research direction.\par\vspace{5pt}
+\textbf{\href{https://www.tifr.res.in/endowment/sdf/index.html}{Sarojini Damodaran International Student Travel Fellowship}}, TIFR\hfill 2023\\
+Supported research stays at Roskilde University and Heinrich Heine University D\"usseldorf.
 
-\noindent\textbf{Roskilde University}, Denmark \hfill Nov -- Dec 2023\\
-Hosted by Prof.\ Jeppe Dyre\par\vspace{0.4em}
-
-\noindent\textbf{Heinrich Heine University D\"usseldorf}, Germany \hfill Dec 2023 -- Jan 2024\\
-Hosted by Prof.\ J\"urgen Horbach\par\vspace{0.4em}
-
-% ----------------------------------------------------------------
 \section{Talks \& Presentations}
+\begin{tabularx}{\linewidth}{@{}X@{\quad}r@{}}
+\textbf{NeurIPS 2026}, poster, Sydney, Australia & Dec 2026\\[2pt]
+\textbf{New York University}, Simons Center Postdoctoral Research Symposium, talk, USA & Oct 2026\\[2pt]
+\textbf{ICLR 2026 Workshop on World Models}, poster, Rio de Janeiro, Brazil & Apr 2026\\[2pt]
+\textbf{APS Global Physics Summit}, contributed talk, Denver, USA & Mar 2026\\[2pt]
+\textbf{New York University}, Simons Center Postdoctoral Research Symposium, talk, USA & Oct 2025\\[2pt]
+\textbf{University of G\"ottingen}, Institut f\"ur Theoretische Physik, seminar, Germany & Jan 2024\\[2pt]
+\textbf{University of Amsterdam}, Computational Soft Matter Seminar, talk, Netherlands & Jan 2024\\[2pt]
+\textbf{Heinrich Heine University D\"usseldorf}, Soft Matter Group seminar, Germany & Jan 2024\\[2pt]
+\textbf{Roskilde University}, ``Glass and Time'' Group seminar, Denmark & Nov 2023
+\end{tabularx}
 
-\begin{enumerate}[leftmargin=1.5em, label={[\arabic*]}]
-\item Poster, ICLR 2026 Workshop on World Models, Rio de Janeiro, Brazil \hfill Apr 2026
-\item Contributed talk, APS Global Physics Summit, Denver, USA \hfill Mar 2026
-\item Seminar, Institut f\"ur Theoretische Physik, University of G\"ottingen, Germany \hfill Jan 2024
-\item Computational Soft Matter Seminar, University of Amsterdam, Netherlands \hfill Jan 2024
-\item Seminar, Soft Matter Group, Heinrich Heine University D\"usseldorf, Germany \hfill Jan 2024
-\item Seminar, ``Glass and Time'' Group, Roskilde University, Denmark \hfill Nov 2023
-\end{enumerate}
-
-% ----------------------------------------------------------------
 \section{Professional Service}
-
-\noindent Journal reviewer for \href{https://journals.aps.org/prxintelligence/}{PRX Intelligence} (APS)\par
-
-% ----------------------------------------------------------------
-\section{Selected Media Coverage}
-
-\noindent\href{https://www.nature.com/articles/s41567-025-02900-1}{Nature Physics News \& Views}
-\quad\textbar\quad
-\href{https://www.eurekalert.org/news-releases/1084263}{EurekAlert}
-\quad\textbar\quad
-\href{https://phys.org/news/2025-05-uncover-mechanism-enabling-glasses-brittleness.html}{Phys.org}
+\textbf{Journal reviewer:} PRX Intelligence; Physical Review Materials (PRM).\par\vspace{4pt}
+\textbf{Workshop reviewer:} NeurIPS 2026 Workshop on Physical Understanding for Decision-Making:
+Bridging Foundation Models and Reliable Agents.
 
 \end{document}
