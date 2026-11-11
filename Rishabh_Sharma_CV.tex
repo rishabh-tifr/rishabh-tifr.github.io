@@ -20,6 +20,7 @@
 \setlength{\emergencystretch}{2em}
 \raggedbottom
 \urlstyle{same}
+\frenchspacing
 \titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{1pt}\titlerule]
 \titlespacing*{\section}{0pt}{8pt}{5pt}
 \setlist[itemize]{leftmargin=1.15em,itemsep=2pt,parsep=0pt,topsep=2pt,partopsep=0pt}
@@ -30,8 +31,10 @@
 \fancyfoot[L]{\small\color{muted}Rishabh Sharma}
 \fancyfoot[R]{\small\color{muted}\thepage\,/\,2}
 \setlength{\footskip}{23pt}
-\newcommand{\role}[3]{\textbf{#1}\hfill\textit{#2}\\#3\par}
-\newcommand{\project}[3]{\vspace{6pt}\textbf{#1}\hfill{\small #2}\par\vspace{1pt}{\color{accent}#3\par}}
+\newcommand{\sep}{\unskip\enspace{\color{muted}\textbar}\enspace\ignorespaces}
+\newcommand{\role}[3]{\textbf{#1}\hfill #2\\#3\par}
+\newenvironment{nested}{\list{}{\leftmargin=1.15em\rightmargin=0pt\topsep=0pt\partopsep=0pt\parsep=0pt\itemsep=0pt\listparindent=0pt\itemindent=0pt}\item[]}{\endlist}
+\newcommand{\project}[3]{\vspace{7pt}\textbf{#1}\hfill{\small #2}\par\vspace{1pt}{\color{accent}#3\par}}
 
 \begin{document}
 
@@ -39,10 +42,10 @@
 \vspace{3pt}
 {\large \href{https://wp.nyu.edu/sccpc/people/}{Simons Center Independent Postdoctoral Fellow, New York University}}\par
 \vspace{4pt}
-{\small New York, NY, USA \enspace\textbar\enspace
-\href{mailto:rs10125@nyu.edu}{rs10125@nyu.edu} \enspace\textbar\enspace
-\href{https://rishabh-tifr.github.io}{rishabh-tifr.github.io} \enspace\textbar\enspace
-\href{https://scholar.google.com/citations?user=tXkkMfYAAAAJ&hl=en}{Google Scholar} \enspace\textbar\enspace
+{\small New York, NY, USA\sep
+\href{mailto:rs10125@nyu.edu}{rs10125@nyu.edu}\sep
+\href{https://rishabh-tifr.github.io}{rishabh-tifr.github.io}\sep
+\href{https://scholar.google.com/citations?user=tXkkMfYAAAAJ&hl=en}{Google Scholar}\sep
 \href{https://www.linkedin.com/in/rishabh-nyu/}{LinkedIn}}\par
 \vspace{9pt}
 AI researcher and physicist using statistical physics to understand how AI models store information
@@ -59,31 +62,33 @@ For the \textit{Nature Physics} work, featured in
 \href{https://www.nature.com/articles/s41567-025-02900-1}{\textit{Nature Physics News \& Views}}, I also received the
 \href{https://www.tifr.res.in/~endowment/endowment-awards.htm}{\textbf{2025 Ramakrishna Cowsik Medal}}:
 best paper across the entire TIFR system, in any field, by a researcher under 35.\par\vspace{5pt}
-{\raggedright\textbf{Interests:} Mechanistic interpretability; AI alignment; AI for science;
-\mbox{automated scientific discovery; world models.}\par}
+{\small\raggedright\textbf{Interests:} Mechanistic interpretability; AI alignment; AI for science; automated scientific discovery; world models.\par}
 
 \section{Research Experience}
 \role{Simons Center Independent Postdoctoral Fellow}{Jul 2025 -- present}
 {Simons Center for Computational Physical Chemistry, New York University}
 
+\begin{nested}
 \project{Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models}
-{\href{https://arxiv.org/abs/2606.24000}{Paper} \enspace\textbar\enspace
+{\href{https://arxiv.org/abs/2606.24000}{Paper}\sep
 \href{https://rishabh-tifr.github.io/cyclic-denoising/movies/}{Landscape animations}}
 {\textbf{NeurIPS 2026, Main Track}}
 \begin{itemize}
 \item \textbf{Invented cyclic denoising}, translating Ph.D. insights on memory and annealing in driven
 disordered systems into an extraction attack and dynamical probe. Controlled forward/reverse diffusion
 cycles reveal a \textbf{basin-hopping picture} of the generative landscape: memorized images occupy
-ultrastable basins, persist for \textbf{thousands of cycles}, and regenerate after near-total corruption.
+ultrastable basins, persist for thousands of cycles, and regenerate after near-total corruption.
 \item Efficiently \textbf{recovers memorized training images} even when training captions are unavailable,
 a setting where caption-dependent extraction attacks cannot operate. Finds candidates in
 \textbf{Stable Diffusion v1.4 and a pixel-space DDPM} through long-time dynamics with sampler-level
 control, requiring no prompts, prior training-data knowledge, auxiliary
 detectors, gradients, or weight inspection.
 \end{itemize}
+\end{nested}
 
+\begin{nested}
 \project{Cross-View World Models}
-{\href{https://arxiv.org/abs/2602.07277}{Paper} \enspace\textbar\enspace
+{\href{https://arxiv.org/abs/2602.07277}{Paper}\sep
 \href{https://rishabh-tifr.github.io/cross-view-world-models/}{Project \& demos}}
 {\href{https://openreview.net/forum?id=0g7De0sXWM}{\textbf{ICLR 2026 Workshop on World Models}}
 }
@@ -95,8 +100,9 @@ action-conditioned \textbf{diffusion transformers} on 4,186 one-minute Aimlabs e
 transfer between egocentric and bird's-eye views without retraining. Yaw interventions rigidly rotate
 its heading ring by the commanded angle, leaving earlier, view-dependent heading unchanged.
 \end{itemize}
+\end{nested}
 
-\vspace{4pt}
+\vspace{11pt}
 \role{Doctoral Researcher}{2019 -- 2025}
 {Tata Institute of Fundamental Research (TIFR), Hyderabad, India}
 \begin{itemize}
@@ -104,9 +110,9 @@ its heading ring by the commanded angle, leaving earlier, view-dependent heading
 solids, linking annealing to a ductile-to-brittle transition
 (\href{https://doi.org/10.1038/s41567-024-02724-5}{\textbf{\textit{Nature Physics}}}, 2025;
 featured in \href{https://www.nature.com/articles/s41567-025-02900-1}{\textit{News \& Views}}).
-\item Developed fast, fault-tolerant mechanical-memory protocols
+\item Developed fast and fault-tolerant mechanical-memory protocols
 (\href{https://doi.org/10.1103/PhysRevLett.134.018202}{\textbf{\textit{Physical Review Letters}}},
-2025; co-first author). Conducted large-scale molecular-dynamics simulations using \textbf{C and MPI}
+2025; co-first author). Conducted large-scale molecular-dynamics simulations using C and MPI
 on HPC clusters.
 \end{itemize}
 
@@ -126,7 +132,7 @@ on HPC clusters.
 
 \item \textbf{R. Sharma}, G. Hogervorst, W. E. Mackey, D. J. Heeger, S. Martiniani.
 \href{https://arxiv.org/abs/2602.07277}{\textit{Cross-View World Models.}}\\
-\href{https://openreview.net/forum?id=0g7De0sXWM}{\textbf{ICLR 2026 Workshop on World Models}}.
+{\hypersetup{urlcolor=black}\href{https://openreview.net/forum?id=0g7De0sXWM}{\textbf{ICLR 2026 Workshop on World Models}}}.
 arXiv:2602.07277.\\
 {\small First and co-corresponding author: R. Sharma.}
 
