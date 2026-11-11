@@ -12,21 +12,41 @@
   <meta property="og:url" content="https://rishabh-tifr.github.io/cyclic-denoising/movies/">
   <meta property="og:image" content="https://rishabh-tifr.github.io/cyclic-denoising/anim/cyclic_denoising_primer_poster.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <script>
+    // Dark only if the visitor chose it earlier; otherwise light.
+    try { if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
+  </script>
   <style>
+    /* Colours and typefaces shared with the home page. Light unless the visitor picks dark. */
     :root {
-      --fg: #1a1a1a;
-      --muted: #555;
-      --accent: #b3261e;
+      color-scheme: light;
+      --fg: #15191d;
+      --muted: #434a52;
+      --accent: #1f5a82;
       --bg: #ffffff;
-      --card: #fafafa;
-      --border: #e6e6e6;
+      --card: #f5f7f9;
+      --border: #dde2e6;
+      --serif: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+      --sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --fg: #e8ebee;
+      --muted: #b9c0c7;
+      --accent: #8cc0e4;
+      --bg: #0e1215;
+      --card: #151a1f;
+      --border: #272e35;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 106.25%; }
     #movies, #movie1, #movie2, #movie3, #movie4, #analogy { scroll-margin-top: 28px; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: var(--sans);
       color: var(--fg);
       background: var(--bg);
       line-height: 1.6;
@@ -37,7 +57,7 @@
       padding: 48px 24px 80px;
     }
     header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 36px; }
-    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 10px; }
+    h1 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; font-size: 1.6rem; line-height: 1.3; margin: 0 0 10px; }
     .authors { color: var(--muted); font-size: 1rem; margin: 0 0 4px; }
     .affil { color: var(--muted); font-size: 0.9rem; margin: 0; }
     .kicker {
@@ -63,7 +83,7 @@
       color: var(--fg);
       margin-top: 14px;
     }
-    figcaption .label { font-weight: 700; }
+    figcaption .label { font-weight: 600; }
     figcaption .sub { color: var(--muted); }
     nav {
       display: flex;
@@ -96,14 +116,40 @@
       font-size: 0.85rem;
     }
     a { color: var(--accent); }
+    strong, b { font-weight: 600; }
+    /* Light/dark switch, on the line of the small label above the title */
+    .toprow { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 12px; }
+    .toprow .kicker { margin: 0; text-wrap: balance; }
+    .theme-toggle {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      margin: -8px -7px -8px 0;
+      padding: 0;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: none;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .theme-toggle:hover { color: var(--accent); border-color: var(--border); }
+    .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .theme-toggle svg { display: block; }
+    .theme-toggle .sun { display: none; }
+    :root[data-theme="dark"] .theme-toggle .sun { display: block; }
+    :root[data-theme="dark"] .theme-toggle .moon { display: none; }
     .primerwrap { text-align: center; margin: 30px 0 0; }
     .primerbox {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 10px 18px;
-      border: 1px solid #eddedb;
-      background: #fbf6f5;
+      border: 1px solid var(--border);
+      background: var(--card);
       border-radius: 999px;
       text-decoration: none;
       font-size: 0.92rem;
@@ -111,7 +157,7 @@
       text-align: left;
       transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .primerbox:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(179, 38, 30, 0.08); }
+    .primerbox:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(31, 90, 130, 0.10); }
     .primerbox .emoji { font-size: 1.15rem; line-height: 1; }
     .primerbox .go { color: var(--accent); font-weight: 600; }
     .primerbox:hover .go { text-decoration: underline; }
@@ -124,7 +170,7 @@
       border-top: 1px solid var(--border);
       margin: 56px 0 40px;
     }
-    #analogy h2 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 12px; }
+    #analogy h2 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; font-size: 1.25rem; line-height: 1.35; margin: 0 0 12px; }
     #analogy .lead { color: var(--muted); font-size: 0.98rem; margin: 0 0 36px; }
     figure.anim video { background: #fff; border-radius: 10px; }
   </style>
@@ -132,7 +178,13 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="kicker">Supplementary Movies</p>
+      <div class="toprow">
+        <p class="kicker">NeurIPS 2026 &middot; Supplementary Movies</p>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">
+          <svg class="moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.5A8.5 8.5 0 1 1 10.5 3.5a7.2 7.2 0 0 0 10 10z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.55 1.55M17.15 17.15l1.55 1.55M5.3 18.7l1.55-1.55M17.15 6.85l1.55-1.55"/></svg>
+        </button>
+      </div>
       <h1>Cyclic Denoising Reveals Ultrastable Memories in Diffusion Models</h1>
       <p class="authors"><a href="/">Rishabh Sharma</a>, Stefano Martiniani</p>
       <p class="affil">New York University</p>
@@ -340,5 +392,23 @@
       Diffusion Models.&rdquo;
     </footer>
   </div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector('.theme-toggle');
+      function describe() {
+        var text = root.getAttribute('data-theme') === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+        btn.setAttribute('aria-label', text);
+        btn.title = text;
+      }
+      btn.addEventListener('click', function () {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        if (dark) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', 'dark');
+        try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+        describe();
+      });
+      describe();
+    })();
+  </script>
 </body>
 </html>
